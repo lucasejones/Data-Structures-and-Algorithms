@@ -26,11 +26,52 @@ https://www.programiz.com/dsa/counting-sort
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
 
-# quick sort
-# lomuto, median pivot selection, hoare's partitioning, dutch national flag, hybrid with insertion
+# 1. Quicksort
+	# a. Lomuto
+	# b. Hoare's partitioning
+	# c. Dutch National Flag
+	# d. Hybrid With Insertion
 
 
-# hoare's partitioning
+# a. Lomuto:
+a = [9, -3, 5, 2, 6, 8, -6, 1, 3]
+
+
+def quicksort(a, start = 0, end = len(a) - 1):
+	if start >= end:
+		return 
+
+	pivot = partition(a, start, end)
+
+	quicksort(a, start, pivot - 1)
+	quicksort(a, pivot + 1, end)
+
+
+def swap(a, i, j):
+	temp = a[i]
+	a[i] = a[j]
+	a[j] = temp
+
+
+def partition(a, start, end):
+	pivot = a[end]
+	p_index = start
+
+	for i in range(start, end):
+		if a[i] <= pivot:
+			swap(a, i, p_index)
+			p_index += 1
+
+	swap(a, end, p_index)
+
+	return p_index
+
+quicksort(a)
+print('Lomuto', a)
+
+
+
+# b. Hoare's partitioning
 
 a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
 
@@ -70,11 +111,11 @@ def partition(a, start, end):
 		swap(a, i, j)
 
 quick_hoare(a, 0, len(a) - 1)
-print('quick hoare', a)
+print('Quick Hoare', a)
 
 
 
-# dutch national flag
+# c. Dutch National Flag
 a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
 
 def quick_dutch(a, start, end):
@@ -117,11 +158,11 @@ def partition(a, start, end):
 	return start - 1, mid
 
 quick_dutch(a, 0, len(a) - 1)
-print('quick dutch', a)
+print('Quick Dutch', a)
 
 
 
-# hybrid with insertion
+# d. hybrid with insertion
 a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
 
 def quick_insert(a, start, end, cutoff):
@@ -177,7 +218,7 @@ def partition(a, start, end):
 
 
 quick_insert(a, 0, len(a) - 1, 3)
-print('quick insert', a)
+print('Quick hybrid', a)
 
 
 

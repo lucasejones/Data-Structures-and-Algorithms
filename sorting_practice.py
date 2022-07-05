@@ -235,6 +235,7 @@ print('Quick hybrid', a)
 
 
 
+# Bonus implementation
 
 # Here's an interesting variant to illustrate DAC aspect of quicksort, found at the link below. It's not performant, and is not in place.
 # I thought it might be nice to have this as a reference.
@@ -260,6 +261,7 @@ def other_quick(nums):
 
 # print(other_quick(nums))
 # print(nums)
+
 # this is not in place, so it's worse on memory than standard quicksort. it also chooses a very poor pivot. However, it demonstrates divide and conquer very well as a conceptual exercise.
 	# values relative to the pivot are shuttled into their respective lists. each list is then recursively put through the same process until there's only 1 element in it, and combined with the other elements.   
 
@@ -268,7 +270,7 @@ def other_quick(nums):
 				# Analysis
 ###_________________________________________________________________________###
 
-# pros and cons, when to use:
+# pros and cons:
 	# pros: 
 		# in-place (a pro if this is desired)
 		# generally seen as the fastest sort for large inputs (specifically better than merge sort)
@@ -282,7 +284,7 @@ def other_quick(nums):
 	# neutral: 
 		# is a comparison sort, and is divide-and-conquer.
 
-# use if:
+# when to use:
 	# you have something you need sorted (it should be the default choice)
 	# you have a large input 
 	# you're willing to try out variations to suit that input (repeating elements, insertion hybrid)
@@ -338,7 +340,7 @@ print('insertion', a)
 ###_________________________________________________________________________###
 
 
-# pros and cons, when to use:
+# pros and cons:
 	# pros: 
 		# in-place (if this is seen as a pro)
 		# stable
@@ -356,7 +358,7 @@ print('insertion', a)
 		# is a comparison sort
 		# keeps track of two subsets: sorted and unsorted. it goes from left to right through the unsorted subset to fnid the next unsorted value and compares it against all other values in the sorted subset (moving backwards) until it finds the correct position and places it there.
 
-# use if:
+# when to use:
 	# you'd like an in-place, stable sort that works particualrly well on small arrays. 
 	# it's especially useful in contexts where the input is already mostly sorted.
 	# if you have dynamic data (incoming information that needs continual integration into the sort)
@@ -385,7 +387,10 @@ print('insertion', a)
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
 
-# selection sort
+# Selection Sort
+
+				# Implementation
+###_________________________________________________________________________###
 
 a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
 
@@ -410,8 +415,10 @@ print('selection', a)
 
 
 
+				# Analysis
+###_________________________________________________________________________###
 
-# pros and cons, when to use:
+# pros and cons:
 	# pros: 
 		# performs few write operations, so if memory space is limited, this is a good choice compared to insertion sort 
 		# in-place sort (if you like this)
@@ -425,7 +432,7 @@ print('selection', a)
 		# is an unstable sort
 		
 
-	# use if:
+	# when to use:
 		# you're ok with O(n^2) time complexity (such as with relatively small lists) but are prioritizing a minimal amount of swaps to optimize memory. Because it will perform at most n swaps compared to insertion sort's n^2 swaps (worst case), it can be the better choice in this context.
 	
 
@@ -451,10 +458,17 @@ print('selection', a)
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
 
-# merge sort
-# recursive top-down, iterative bottom-up
+# Merge sort
+	# a. recursive top-down
+	# b. iterative bottom-up
 
-# recursive top-down
+	
+				# Implementation
+###_________________________________________________________________________###	
+	
+	
+	
+# a. Recursive Top-down
 
 a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
 a_aux = a.copy()
@@ -501,7 +515,7 @@ print('merge top down', a)
 
 
 
-# iterative bottom-up
+# b. Iterative Bottom-up
 a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
 
 def merge_sort(a):
@@ -545,8 +559,10 @@ print('merge bottom up', a)
 
 
 
+				# Analysis
+###_________________________________________________________________________###
 
-# pros and cons, when to use:
+# pros and cons:
 	# pros: 
 		# is stable (a pro if this is desired)
 		# n * log n time complexity is decent and guaranteed
@@ -562,7 +578,7 @@ print('merge bottom up', a)
 		# it's a comparative, divide and conquer algorithm 
 		
 
-# use if:
+# when to use:
 	# you want a guaranteed run time of O(n * log n)
 	# you want a stable sort
 	# is useful in parallelization 
@@ -590,8 +606,16 @@ print('merge bottom up', a)
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
 
-# counting sort
+# Counting Sort
+	# a. Method #1
+	# b. Method #2
 
+
+				# Implementation
+###_________________________________________________________________________###	
+
+# a. Method #1
+	
 a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
 k = 6
 
@@ -620,7 +644,9 @@ counting_sort(a, k)
 print('counting', a)
 
 
-# alternative method: this is maybe more common, but slower than the above.
+
+
+# b. Method #2: this is maybe more common, but slower than the above.
 a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
 
 def counting_alt(a):
@@ -648,9 +674,10 @@ print('alt count', a)
 
 
 
+				# Analysis
+###_________________________________________________________________________###
 
-
-# pros and cons, when to use:
+# pros and cons:
 	# pros: 
 		# it is a stable sort (though you can modify it to be unstable)
 		# it is an in-place sort, if you view this as a pro (regarding space it certainly is)
@@ -665,8 +692,8 @@ print('alt count', a)
 	# neutral: 
 		# it is not a comparison sort, nor divide and conquer - it works by computing the prefix sum (adding up the integers of the array) and uses their frequencies and totals to determine the correct order.
 
-	# use if:
-		# you want a linear-time, stable, in-place sort for a small array where the maximum value is not significantly larger than the length of that array.
+# when to use:
+	# you want a linear-time, stable, in-place sort for a small array where the maximum value is not significantly larger than the length of that array.
 
 
 # complexity analysis:
@@ -695,12 +722,15 @@ print('alt count', a)
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
 
-# topological sort
-# kahn's algorithm, dfs 
+# Topological Sort
+	# a. Kahn's algorithm
+	# b. DFS
 
-
-# kahn's:
-
+	
+				# Implementation
+###_________________________________________________________________________###	
+	
+# a. Kahn's:
 
 class Graph:
 	in_degree = None
@@ -748,8 +778,9 @@ else:
 	print('at least 1 cycle present, topologicial sort not possible.')
 
 
+	
 
-# DFS
+# b. DFS
 
 class Graph:
 	def __init__(self, edges, n):
@@ -796,9 +827,10 @@ print('topological dfs', dfs_sorted)
 
 
 
+				# Analysis
+###_________________________________________________________________________###
 
-
-# pros and cons, when to use:
+# pros and cons:
 	# pros: 
 		# linear time
 		# very little space (linear) required (especially with BFS)
@@ -815,7 +847,7 @@ print('topological dfs', dfs_sorted)
 		# DFS thinking:
 			# keep track of which nodes have been visited, and output the nodes in order of decreasing departure times. Because a cyclic graph will have a back edge, an acylic graph can be sorted in this manner. for any given node, mark it as visited, and see if there are adjacent nodes. If so, recursively repeat this process until there are no neighbors, and increment the depature time. Eventually you will have all nodes and their departure times, which in reverse order reveals the ascending sort.
 
-# use if:
+# when to use:
 	# you need to determine a valid order to proceed through steps in a process; ensuring that all prerequisites are met before continuing. (instruction scheduling, deciding in which order to load tables with foreign keys into a database, resolving data dependencies, etc)
 	# if you're working with a graph.
 	# BFS (kahn) if you want to use a queue, DFS if you'd like to use a stack via recursion.
@@ -834,7 +866,9 @@ print('topological dfs', dfs_sorted)
 ###_________________________________________________________________________###
 
 
-# super condensed factblast
+
+
+# Super-condensed Factblast
 
 # quick
 	# time: O(n * log n) most times, O(n^2) if poorly implemented
@@ -868,187 +902,3 @@ print('topological dfs', dfs_sorted)
 
 
 
-
-###_________________________________________________________________________###
-###_________________________________________________________________________###
-###_________________________________________________________________________###
-
-# time trials
-
-###_________________________________________________________________________###
-###_________________________________________________________________________###
-###_________________________________________________________________________###
-
-from time import perf_counter
-
-a = [3, 5, 4, 6, 12, 8, 2, 1]
-# a = [0, 1, 2, 3, 4, 5, 6, 7]
-a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
-
-start = perf_counter()
-quick_hoare(a, 0, len(a) - 1)
-end = perf_counter()
-
-print('quick hoare', f'{end - start:0.8f}')
-
-
-
-a = [3, 5, 4, 6, 12, 8, 2, 1]
-# a = [0, 1, 2, 3, 4, 5, 6, 7]
-a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
-
-# start = perf_counter()
-# quick_dutch(a, 0, len(a) - 1)
-# end = perf_counter()
-
-# print('quick dutch', f'{end - start:0.8f}', a)
-
-
-
-a = [3, 5, 4, 6, 12, 8, 2, 1]
-# a = [0, 1, 2, 3, 4, 5, 6, 7]
-a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
-
-start = perf_counter()
-quick_insert(a, 0, len(a) - 1, 15)
-end = perf_counter()
-
-print('quick insert', f'{end - start:0.8f}')
-
-
-
-a = [3, 5, 4, 6, 12, 8, 2, 1]
-# a = [0, 1, 2, 3, 4, 5, 6, 7]
-a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
-a_aux = a.copy()
-
-start = perf_counter()
-merge_sort_rec(a, a_aux, 0, len(a) - 1)
-end = perf_counter()
-
-print('merge rec', f'{end - start:0.8f}')
-
-
-
-a = [3, 5, 4, 6, 12, 8, 2, 1]
-# a = [0, 1, 2, 3, 4, 5, 6, 7]
-a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
-
-start = perf_counter()
-merge_sort(a)
-end = perf_counter()
-
-print('merge iter', f'{end - start:0.8f}')
-
-
-
-a = [3, 5, 4, 6, 12, 8, 2, 1]
-# a = [0, 1, 2, 3, 4, 5, 6, 7]
-a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
-
-start = perf_counter()
-insertion_sort(a)
-end = perf_counter()
-
-print('insertion', f'{end - start:0.8f}')
-
-
-
-a = [3, 5, 4, 6, 12, 8, 2, 1]
-# a = [0, 1, 2, 3, 4, 5, 6, 7]
-a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
-
-start = perf_counter()
-selection_sort(a)
-end = perf_counter()
-
-print('selection', f'{end - start:0.8f}')
-
-
-
-a = [3, 5, 4, 6, 12, 8, 2, 1]
-# a = [0, 1, 2, 3, 4, 5, 6, 7]
-a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
-
-start = perf_counter()
-counting_sort(a, 12)
-end = perf_counter()
-
-print('counting', f'{end - start:0.8f}')
-
-
-
-a = [3, 5, 4, 6, 12, 8, 2, 1]
-# a = [0, 1, 2, 3, 4, 5, 6, 7]
-a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
-
-start = perf_counter()
-counting_alt(a)
-end = perf_counter()
-
-print('counting alt', f'{end - start:0.8f}')
-
-
-
-a = [3, 5, 4, 6, 12, 8, 2, 1]
-# a = [0, 1, 2, 3, 4, 5, 6, 7]
-a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
-
-start = perf_counter()
-topological_sort(grapht, n)
-end = perf_counter()
-
-print('topological', f'{end - start:0.8f}')
-
-
-
-
-
-
-
-
-#_________________________________________________________________#
-#_________________________________________________________________#
-#_________________________________________________________________#
-#_________________________________________________________________#
-#_________________________________________________________________#
-
-					# big random sample test
-#_________________________________________________________________#
-#_________________________________________________________________#
-
-
-import random
-from time import perf_counter
-
-num_list = random.sample(range(500), 100)
-start = perf_counter()
-quick_insert(num_list, 0, len(num_list) - 1, 5)
-end = perf_counter()
-
-print('quick insert mega random time taken: ', f'{end - start:.8f}')
-
-
-num_list = random.sample(range(500), 100)
-start = perf_counter()
-quick_hoare(num_list, 0, len(num_list) - 1)
-end = perf_counter()
-
-print('quick hoare mega random time taken: ', f'{end - start:.8f}')
-
-
-# num_list = random.sample(range(500), 100)
-# start = perf_counter()
-# insertion_sort(num_list)
-# end = perf_counter()
-
-# print('insertion mega random time taken: ', f'{end - start:.8f}')
-
-
-
-# num_list = random.sample(range(500), 100)
-# start = perf_counter()
-# selection_sort(num_list)
-# end = perf_counter()
-
-# print('insertion mega random time taken: ', f'{end - start:.8f}')

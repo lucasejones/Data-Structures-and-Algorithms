@@ -23,7 +23,7 @@ def get_target_index(arr, target):
 	return -1
 
 
-print(get_target_index(nums, 70))
+print('Target index: ', get_target_index(nums, 70))
 
 
 
@@ -46,7 +46,7 @@ def get_starting_index(arr):
 			left = pivot + 1
 	return left
 
-print('Get starting index of rotated sorted array: ', get_starting_index(rotated_arr_1))
+print('Starting index of rotated sorted array: ', get_starting_index(rotated_arr_1))
 
 
 # find the ending index of a rotated sorted arrayy
@@ -60,7 +60,7 @@ def get_ending_index(arr):
 			right = pivot - 1
 	return pivot # <-- or instead: set right = pivot and return left - 1. these two approaches are equivalent.
 
-print('Get ending index of rotated sorted array: ', get_ending_index(rotated_arr_2))
+print('Ending index of rotated sorted array: ', get_ending_index(rotated_arr_2))
 
 
 
@@ -83,7 +83,7 @@ def get_peak_element(arr):
 			right = pivot
 	return left
 
-print('Get peak element: ', get_peak_element(unsorted_nums_1))
+print('Peak element: ', get_peak_element(unsorted_nums_1))
 
 
 
@@ -111,7 +111,7 @@ def get_less_than_target(nums, target):
 	return nums[:left]
 	# could return all values above the target by returning nums[left + 1:]
 
-print('Get less than target: ', get_less_than_target(too_many_nums, 10))
+print('Less than target: ', get_less_than_target(too_many_nums, 10))
 
 
 
@@ -142,7 +142,7 @@ def get_target_index_alternate(arr, target):
 	return -1
 
 
-print('Get target index alternate: ', get_target_index_alternate(array, 13))
+print('Target index alternate: ', get_target_index_alternate(array, 13))
 
 
 ###_________________________________________________________________________###

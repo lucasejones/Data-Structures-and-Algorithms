@@ -175,7 +175,7 @@ print('Quick Dutch', a)
 
 
 
-# d. Hybrid with insertion
+# d. Hybrid with Insertion
 a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
 
 def quick_insert(a, start, end, cutoff):

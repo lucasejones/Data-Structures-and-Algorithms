@@ -35,8 +35,15 @@ We'll cover the following sorts:
 	# c. Dutch National Flag
 	# d. Hybrid With Insertion
 
-
+	
+	
+	
+	
+				# Implementation
+###_________________________________________________________________________###
+	
 # a. Lomuto:
+
 a = [9, -3, 5, 2, 6, 8, -6, 1, 3]
 
 
@@ -71,6 +78,7 @@ def partition(a, start, end):
 
 quicksort(a)
 print('Lomuto', a)
+
 
 
 
@@ -118,6 +126,7 @@ print('Quick Hoare', a)
 
 
 
+
 # c. Dutch National Flag
 a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
 
@@ -162,6 +171,7 @@ def partition(a, start, end):
 
 quick_dutch(a, 0, len(a) - 1)
 print('Quick Dutch', a)
+
 
 
 
@@ -225,8 +235,11 @@ print('Quick hybrid', a)
 
 
 
-# an interesting variant to illustrate DAC aspect of quicksort. it's not performant, and is not in place. thought it might be nice to have this as a reference.
+
+# Here's an interesting variant to illustrate DAC aspect of quicksort, found at the link below. It's not performant, and is not in place.
+# I thought it might be nice to have this as a reference.
 # https://stackoverflow.com/questions/18262306/quicksort-with-python
+
 def other_quick(nums):
 	less = []
 	equal = []
@@ -250,6 +263,10 @@ def other_quick(nums):
 # this is not in place, so it's worse on memory than standard quicksort. it also chooses a very poor pivot. However, it demonstrates divide and conquer very well as a conceptual exercise.
 	# values relative to the pivot are shuttled into their respective lists. each list is then recursively put through the same process until there's only 1 element in it, and combined with the other elements.   
 
+	
+	
+				# Analysis
+###_________________________________________________________________________###
 
 # pros and cons, when to use:
 	# pros: 
@@ -294,7 +311,11 @@ def other_quick(nums):
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
 
-# insertion sort
+# Insertion Sort
+
+
+				# Implementation
+###_________________________________________________________________________###
 
 a = [4, 2, 6, 1, 2, 3, 5, 6, 2, 1, 4, 3, 2]
 
@@ -313,7 +334,8 @@ print('insertion', a)
 
 
 
-
+				# Analysis
+###_________________________________________________________________________###
 
 
 # pros and cons, when to use:
@@ -350,6 +372,8 @@ print('insertion', a)
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
+
+
 
 
 
@@ -414,6 +438,7 @@ print('selection', a)
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
+
 
 
 
@@ -559,6 +584,8 @@ print('merge bottom up', a)
 
 
 
+
+
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
@@ -655,6 +682,8 @@ print('alt count', a)
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
 ###_________________________________________________________________________###
+
+
 
 
 

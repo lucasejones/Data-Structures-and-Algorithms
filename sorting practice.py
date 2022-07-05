@@ -1,22 +1,25 @@
 
 '''
-this is a master file for implementing various sorting algorithms as well as to understand both their pros and cons as well as their time and space complexities. 
+Introduction
 
-a good resource for complexity and use cases if you get stuck:
-https://www.programiz.com/dsa/counting-sort
 
+This is a master file for implementing various sorting algorithms. 
+After each implementation, there's an analysis of each algorithm's pros and cons, as well as its time and space complexities. 
+
+
+We'll cover the following sorts: 
  
-1. Quick sort
+	1. Quick sort
 
-2. Insertion sort
+	2. Insertion sort
 
-3. Selection sort
+	3. Selection sort
 
-4. Merge sort
+	4. Merge sort
 
-5. Counting sort
+	5. Counting sort
 
-6. Topological sort
+	6. Topological sort
 
 '''
 

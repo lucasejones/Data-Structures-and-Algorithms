@@ -332,7 +332,7 @@ def insertion_sort(a):
 		a[j] = v
 
 insertion_sort(a)
-print('insertion', a)
+print('Insertion', a)
 
 
 
@@ -411,7 +411,7 @@ def swap(a, i, j):
 
 
 selection_sort(a)
-print('selection', a)
+print('Selection', a)
 
 
 
@@ -511,7 +511,7 @@ def merge(a, aux, low, mid, high):
 
 
 merge_sort_rec(a, a_aux, 0, len(a) - 1)
-print('merge top down', a)
+print('Merge Recursive Top-down', a)
 
 
 
@@ -555,7 +555,7 @@ def merge(a, aux, low, mid, high):
 		a[i] = aux[i]
 
 merge_sort(a)
-print('merge bottom up', a)
+print('Merge Iterative Bottom-up', a)
 
 
 
@@ -641,7 +641,7 @@ def counting_sort(a, k):
 
 
 counting_sort(a, k)
-print('counting', a)
+print('Counting Method 1', a)
 
 
 
@@ -670,7 +670,7 @@ def counting_alt(a):
 		a[i] = output[i]
 
 counting_alt(a)
-print('alt count', a)
+print('Counting Method 2', a)
 
 
 
@@ -773,9 +773,9 @@ def topological_sort(graph, n):
 
 topo_sorted = topological_sort(grapht, n)
 if topo_sorted:
-	print('topological kahn', topo_sorted)
+	print('Topological Kahn', topo_sorted)
 else:
-	print('at least 1 cycle present, topologicial sort not possible.')
+	print('At least 1 cycle present, topologicial sort not possible.')
 
 
 	
@@ -823,7 +823,7 @@ def dfs(graph, v, discovered, departure, time):
 
 
 dfs_sorted = topological_dfs(graph, n)
-print('topological dfs', dfs_sorted)
+print('Topological DFS', dfs_sorted)
 
 
 
